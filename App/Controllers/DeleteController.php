@@ -26,8 +26,6 @@ class DeleteController extends \Core\Controller
 
     public function indexAction()
     {
-        print_r('yahallo2');
-
         $newsId = $this->model->getId();
 
         $db = News::getDB();
