@@ -40,12 +40,6 @@ class NewsController extends \Core\Controller
         $news['lastPage'] = $page == $lastPage ? True : False;
         $news['last_news'] = $lastNews;
 
-        for ($x = 0; $x < count($news['news']); $x++)
-        {
-            $date = date_create($news['news'][$x]['date']);
-            $news['news'][$x]['date'] = date_format($date, 'd.m.Y');
-        }
-
         $data['news'] = $news;
         $this->view->generate('index.php', 'template.php', $data);
     }
