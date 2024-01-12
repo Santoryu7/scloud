@@ -38,6 +38,7 @@ class NewsController extends \Core\Controller
         $news['biasForButton'] = 1;
 
         $news['lastPage'] = $page == $lastPage ? True : False;
+        $news['onePage'] = $lastPage;
         $news['last_news'] = $lastNews;
 
         $data['news'] = $news;
