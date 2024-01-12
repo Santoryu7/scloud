@@ -26,7 +26,15 @@
             </div>
             <div class="cards__pagina">
                 <?php
-                if ($news['lastPage']) {
+                if ($news['onePage'] == 1) {
+                    for ($x = $news['page']; $x < $news['page'] + 1; $x++) {
+                        ?>
+                        <a href="/public/news/<?= $x - $news['bias'] ?>">
+                            <button class="cards__button-pagina"><?= $x - $news['bias'] ?></button>
+                        </a>
+                        <?php
+                    }
+                } elseif ($news['lastPage']) {
                     for ($x = $news['page']; $x < $news['page'] + 2; $x++) {
                         ?>
                         <a href="/public/news/<?= $x - $news['bias'] ?>">
@@ -35,12 +43,22 @@
                         <?php
                     }
                 } else {
-                    for ($x = $news['page']; $x < $news['page'] + 3; $x++) {
-                        ?>
-                        <a href="/public/news/<?= $x - $news['bias'] ?>">
-                            <button class="cards__button-pagina"><?= $x - $news['bias'] ?></button>
-                        </a>
-                        <?php
+                    if ($news['onePage'] == 2) {
+                        for ($x = $news['page']; $x < $news['page'] + 2; $x++) {
+                            ?>
+                            <a href="/public/news/<?= $x - $news['bias'] ?>">
+                                <button class="cards__button-pagina"><?= $x - $news['bias'] ?></button>
+                            </a>
+                            <?php
+                        }
+                    } else {
+                        for ($x = $news['page']; $x < $news['page'] + 3; $x++) {
+                            ?>
+                            <a href="/public/news/<?= $x - $news['bias'] ?>">
+                                <button class="cards__button-pagina"><?= $x - $news['bias'] ?></button>
+                            </a>
+                            <?php
+                        }
                     }
                 }
                 ?>
@@ -63,4 +81,3 @@
         </div>
     </div>
 </section>
-
